@@ -1,14 +1,14 @@
 # @Author: Daniel Gangl
 # @Date:   2021-12-31 14:26:43
 # @Last Modified by:   Daniel Gangl
-# @Last Modified time: 2021-12-31 15:03:38
+# @Last Modified time: 2021-12-31 15:27:54
 name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
 
