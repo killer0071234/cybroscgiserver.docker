@@ -20,7 +20,7 @@ Supported PLCs:
 
 ```
 docker pull killer007/cybroscgiserver
-docker run killer007/cybroscgiserver:latest
+docker run killer007/cybroscgiserver:latest -p 4000:4000/tcp -p 8442:8442/udp
 ```
 
 ## Usage
@@ -35,17 +35,27 @@ http://www.cybrotech.com/software-category/tools/
 The configuration file for the scgi server can be found under:
 ./config/config.ini
 
-The configuration file for the data logger can be found under:
-./config/data_logger.xml
-
 For a own configuration mount the config.ini file to:
 /usr/local/bin/scgi_server/config.ini
-for docker-compose: 
+In docker-compose: 
 ```
 volumes:
-  - "./config.ini:/usr/local/bin/scgi_server/config.ini"
+  - "./config/config.ini:/usr/local/bin/scgi_server/config.ini"
 ```
 On commandline add:
 ```
--v "./config.ini:/usr/local/bin/scgi_server/config.ini"
+-v "./config/config.ini:/usr/local/bin/scgi_server/config.ini"
 ```
+
+The configuration file for the data logger can be found under:
+./config/data_logger.xml
+In docker-compose: 
+```
+volumes:
+  - "./config/data_logger.xml:/usr/local/bin/scgi_server/data_logger.xml"
+```
+On commandline add:
+```
+-v "./config/data_logger.xml:/usr/local/bin/scgi_server/data_logger.xml"
+```
+
