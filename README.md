@@ -16,12 +16,11 @@ Supported PLCs:
 
 - Docker
 
-## Install
+## Install and run
 
 ```
-git clone https://github.com/killer0071234/docker-cybroscgiserver.git docker-cybroscgiserver
-cd docker-cybroscgiserver
-docker-compose up -d
+docker pull killer007/cybroscgiserver
+docker run killer007/cybroscgiserver:latest
 ```
 
 ## Usage
@@ -41,4 +40,12 @@ The configuration file for the data logger can be found under:
 
 For a own configuration mount the config.ini file to:
 /usr/local/bin/scgi_server/config.ini
-docker-compose: under volumes: - "./config.ini:/usr/local/bin/scgi_server/config.ini"
+for docker-compose: 
+```
+volumes:
+  - "./config.ini:/usr/local/bin/scgi_server/config.ini"
+```
+On commandline add:
+```
+-v "./config.ini:/usr/local/bin/scgi_server/config.ini"
+```

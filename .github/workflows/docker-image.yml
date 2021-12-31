@@ -1,0 +1,22 @@
+# @Author: Daniel Gangl
+# @Date:   2021-12-31 14:26:43
+# @Last Modified by:   Daniel Gangl
+# @Last Modified time: 2021-12-31 14:38:43
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag cybroscgiserver:$(date +%s)
