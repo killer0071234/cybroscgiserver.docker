@@ -9,7 +9,7 @@ Supported PLCs:
 ## Contains
 
 - latest Python 3.8 required for CyBroScgiServer
-- CyBroScgiServer v3.1.2 from http://www.cybrotech.com/ (directly loaded from cybrotech.com)
+- CyBroScgiServer v3.1.3 from http://www.cybrotech.com/ (directly loaded from cybrotech.com)
 - example configuration file(s)
 
 ## Requirements
@@ -25,7 +25,7 @@ docker run killer007/cybroscgiserver:latest -p 4000:4000/tcp -p 8442:8442/udp
 
 ## Usage
 
-For detailed usage / valid system tags check the readme of CyBroScgiServer-v3.1.2.zip under
+For detailed usage / valid system tags check the readme of CyBroScgiServer-v3.1.3.zip under
 http://www.cybrotech.com/software-category/tools/
 
 - web requests to SCGI socket with xml-answer: http://[ip]:4000/?

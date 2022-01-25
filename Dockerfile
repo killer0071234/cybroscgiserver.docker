@@ -1,6 +1,7 @@
 FROM python:3.8-buster
 
 LABEL org.opencontainers.image.authors="Daniel Gangl <killer007@gmx.at>"
+LABEL SCGI_SERVER_VERSION="3.1.3"
 
 WORKDIR /tmp/
 
@@ -10,11 +11,11 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y curl
 
-RUN wget https://www.cybrotech.com/wp-content/uploads/2021/12/CyBroScgiServer-v3.1.2.zip
+RUN wget https://www.cybrotech.com/wp-content/uploads/2022/01/CyBroScgiServer-v3.1.3.zip
 
 RUN unzip *.zip
 
-RUN mv scgi_server/ /usr/local/bin/
+RUN mv */scgi_server/ /usr/local/bin/
 
 RUN rm -r *
 
