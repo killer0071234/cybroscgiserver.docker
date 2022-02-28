@@ -9,7 +9,13 @@ RUN apt-get update
 
 RUN apt-get upgrade -y
 
-RUN apt-get install -y curl
+RUN apt-get install -y curl nginx
+
+RUN unlink /etc/nginx/sites-enabled/default
+
+COPY ./nginx /etc/nginx/sites-available/
+
+COPY ./nginx /etc/nginx/sites-enabled/
 
 RUN wget https://www.cybrotech.com/wp-content/uploads/2022/01/CyBroScgiServer-v3.1.3.zip
 
@@ -34,7 +40,8 @@ RUN chmod +x run.sh
 CMD /usr/local/bin/scgi_server/run.sh
 
 HEALTHCHECK --interval=5s --timeout=2s --retries=12 \
-  CMD curl --silent --fail http://localhost:4000/?sys.server_uptime || exit 1
+  CMD curl --silent --fail http://localhost:80/?sys.server_uptime || exit 1
 
 EXPOSE 4000/tcp
 EXPOSE 8442/udp
+EXPOSE 80/tcp
