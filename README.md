@@ -29,7 +29,7 @@ docker run killer007/cybroscgiserver:latest -p 4000:4000/tcp -p 4080:80/tcp -p 8
 ## Usage
 
 For detailed usage / valid system tags check the readme of CyBroScgiServer-v3.1.3.zip under
-http://www.cybrotech.com/software-category/tools/
+https://cybrotech.com/software/
 
 - web requests to SCGI socket with xml-answer (but without any http-header): http://[ip]:4000/?
   Example: http://[ip]:4000/?sys.server_uptime -> returns the ScgiServer Uptime (including a tag description) formatted as xml
