@@ -17,7 +17,7 @@ COPY ./nginx /etc/nginx/sites-available/
 
 COPY ./nginx /etc/nginx/sites-enabled/
 
-RUN wget https://www.cybrotech.com/wp-content/uploads/2022/01/CyBroScgiServer-v3.1.3.zip
+RUN wget https://cybrotech.com/wp-content/uploads/2017/01/CyBroScgiServer-v3.1.3.zip
 
 RUN unzip *.zip
 
