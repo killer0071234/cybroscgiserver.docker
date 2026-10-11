@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 env:
-  GHCR_IMAGE: ghcr.io/${{ github.repository_owner }}/cybroscgiserver
+  GHCR_IMAGE: ghcr.io/${{ github.repository }}
   DOCKERHUB_IMAGE: docker.io/killer007/cybroscgiserver
   PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7
 
