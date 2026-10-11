@@ -1,0 +1,33 @@
+services:
+  scgi_server:
+    image: killer007/cybroscgiserver:latest
+    restart: unless-stopped
+    ports:
+      - "4080:80/tcp"     # http (nginx)
+      - "4000:4000/tcp"   # scgi
+      - "8442:8442/udp"   # a-bus / push messages from the controllers
+    volumes:
+      - "./config/config.ini:/usr/local/bin/scgi_server/config.ini"
+
+  # optional: store variables into a MySQL database, configured in data_logger.xml and [DBASE] of config.ini
+  # data_logger:
+  #   image: killer007/cybroscgiserver:latest
+  #   command: data_logger
+  #   restart: unless-stopped
+  #   network_mode: "service:scgi_server"   # reach the scgi server on localhost
+  #   healthcheck:
+  #     disable: true
+  #   volumes:
+  #     - "./config/config.ini:/usr/local/bin/scgi_server/config.ini"
+  #     - "./config/data_logger.xml:/usr/local/bin/scgi_server/data_logger.xml"
+
+  # optional: publish / subscribe variables to an MQTT broker, configured in [MQTT], [PUBLISH] and [SUBSCRIBE] of config.ini
+  # mqtt_client:
+  #   image: killer007/cybroscgiserver:latest
+  #   command: mqtt_client
+  #   restart: unless-stopped
+  #   network_mode: "service:scgi_server"   # reach the scgi server on localhost
+  #   healthcheck:
+  #     disable: true
+  #   volumes:
+  #     - "./config/config.ini:/usr/local/bin/scgi_server/config.ini"
